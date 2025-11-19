@@ -16,7 +16,9 @@ jobs:
         uses: github/codeql-action/upload-sarif@v4
         with:
           sarif_file: sca.sarif
+          category: sca-results
       - name: Upload SAST SARIF report
         uses: github/codeql-action/upload-sarif@v4
         with:
           sarif_file: sast.sarif
+          category: sast-results
