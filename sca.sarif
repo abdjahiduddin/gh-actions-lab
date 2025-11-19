@@ -1,0 +1,44 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0.json",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Example SCA Scanner",
+          "version": "1.0.0",
+          "rules": [
+            {
+              "id": "SCA001",
+              "name": "VulnerableDependency",
+              "fullDescription": {
+                "text": "A dependency with known vulnerabilities was detected."
+              },
+              "defaultConfiguration": { "level": "warning" }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "SCA001",
+          "level": "warning",
+          "message": { "text": "Dependency 'lodash@4.17.15' contains known vulnerabilities (CVE-2020-8203)." },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": { "uri": "package-lock.json" }
+              }
+            }
+          ],
+          "properties": {
+            "packageName": "lodash",
+            "packageVersion": "4.17.15",
+            "advisory": "CVE-2020-8203",
+            "severity": "high"
+          }
+        }
+      ]
+    }
+  ]
+}
