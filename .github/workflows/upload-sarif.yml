@@ -3,6 +3,11 @@ name: Upload SARIF Reports
 on:
   workflow_dispatch:
 
+permissions:
+  security-events: write     # Required to upload SARIF
+  actions: read              # Recommended
+  contents: read             # Required for most workflows
+
 jobs:
   upload-sarif:
     runs-on: ubuntu-latest
